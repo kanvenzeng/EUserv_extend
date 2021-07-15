@@ -40,7 +40,7 @@ def login(username: str, password: str) -> (str, requests.session):
     f = session.post(url, headers=headers, data=login_data)
     f.raise_for_status()
 
-    if f.text.find('Hello') == -1:
+    if f.text.find('Hello') == -1 and  f.text.find('Customer ID')== -1 :
         return '-1', session
     return sess_id, session
 
